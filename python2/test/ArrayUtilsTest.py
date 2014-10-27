@@ -1,11 +1,10 @@
 #!/usr/bin/env python2
 # coding=utf-8
 
+import ArrayUtils
+
 __author__ = 'zero.liu'
 __date__ = 14 - 10 - 27
-
-
-from util import ArrayUtils
 
 
 def contain_counts_test():

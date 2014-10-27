@@ -5,7 +5,7 @@ __author__ = 'zero.liu'
 __date__ = 14 - 10 - 27
 
 
-from common import Charset
+from .common import Charset
 
 
 # 把元素中的字符串转换成指定编码，只转换字符串或list、set、tuple中的字符串
