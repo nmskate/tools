@@ -45,9 +45,9 @@ def convert_to_type(element_, charset_):
             _array_temp_ = tuple(_array_temp_)
         return _array_temp_
 
-    tmp_ = convert_(element_)
-    if tmp_ is not None:
-        return tmp_
+    temp_ = convert_(element_)
+    if temp_ is not None:
+        return temp_
 
     if isinstance(element_, (list, set, tuple)):
         return __convert_to_charset(element_)
