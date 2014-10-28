@@ -25,12 +25,12 @@ def subtract_unprintable(string_):
 # 比如将 'abc,d e,f.g.h' 按 [',', ' ', '.'] 分割，结果就是 ['abc','d','e','f','g','h']
 # 支持分隔符是多个字符，如按['中国', '..']分割
 def split_plus(string_, separator_array_):
+    if string_ is None or string_ == '':
+        return []
+
     if separator_array_ is None or len(separator_array_) <= 0:
         # 默认按逗号空格分割
         separator_array_ = [',', ' ']
-
-    if string_ is None or string_ == '':
-        return []
 
     len_ = len(string_)
     start_index_ = 0
@@ -52,5 +52,5 @@ def split_plus(string_, separator_array_):
             result_str_array.append(string_[start_index_:])
             break
         start_index_ = min_index + cur_separator_len_
-    return result_str_array
 
+    return result_str_array
