@@ -5,18 +5,18 @@ import TypeUtils
 import StringUtils
 
 __author__ = 'zero.liu'
-__date__ = 14 - 10 - 27
+__date__ = '14 - 10 - 27'
 
 
 def subtract_blank_test():
-    print StringUtils.subtract_blank('''ab \t\n gda\\d''')
+    print StringUtils.subtract_blank('''ab \t\n gda\d''')
     print StringUtils.subtract_blank(None)
     print StringUtils.subtract_blank('')
     print StringUtils.subtract_blank(' a ')
 
 
 def subtract_unprintable_test():
-    str_test = '''ab \t\n gda\\d'''
+    str_test = '''ab \t\n gda\d'''
     print StringUtils.subtract_unprintable(str_test)
 
 
@@ -34,4 +34,8 @@ if __name__ == '__main__':
 
     subtract_blank_test()
 
+    subtract_unprintable_test()
+
     split_plus_test()
+
+    print StringUtils.split_plus('abc,d e,f.g.h', [',', ' ', '.', 'bc'])

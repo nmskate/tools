@@ -2,7 +2,7 @@
 # coding=utf-8
 
 __author__ = 'zero.liu'
-__date__ = 14 - 10 - 27
+__date__ = '14 - 10 - 27'
 
 
 from common import Charset
@@ -10,6 +10,10 @@ from common import Charset
 
 # 把元素中的字符串转换成指定编码，只转换字符串或list、set、tuple中的字符串
 # charset_只能取 unicode, str, int, float
+# example:
+# convert_to_type(['杭州西湖', ['北京']], unicode) = [u'\u676d\u5dde\u897f\u6e56', [u'\u5317\u4eac']]
+# convert_to_type(['杭州西湖', '123', 123], int) = ['\xe6\x9d\xad\xe5\xb7\x9e\xe8\xa5\xbf\xe6\xb9\x96', 123, 123]
+# convert_to_type([['123', '中文'], 123], float) = [[123.0, '\xe4\xb8\xad\xe6\x96\x87'], 123.0]
 def convert_to_type(element_, charset_):
     if element_ is None or charset_ is None:
         return element_

@@ -2,12 +2,15 @@
 # coding=utf-8
 
 __author__ = 'zero.liu'
-__date__ = 14 - 10 - 27
+__date__ = '14 - 10 - 27'
 
 import re
 
 
 # 去除字符串中所有空白字符[<空格>\t\r\n\f\v]
+# example:
+# subtract_blank('''ab \t\n gda\d''') = 'abgda\d'
+# subtract_blank(' a ') = 'a'
 def subtract_blank(string_):
     if type(string_) != str:
         string_ = str(string_)
@@ -15,6 +18,8 @@ def subtract_blank(string_):
 
 
 # 去除所有不可打印字符[\t\r\n\f\v]
+# example:
+# subtract_unprintable('''ab \t\n gda\d''') = 'ab  gda\d'
 def subtract_unprintable(string_):
     if type(string_) != str:
         string_ = str(string_)
@@ -22,8 +27,9 @@ def subtract_unprintable(string_):
 
 
 # 将一个字符串按给定的数组分割
-# 比如将 'abc,d e,f.g.h' 按 [',', ' ', '.'] 分割，结果就是 ['abc','d','e','f','g','h']
 # 支持分隔符是多个字符，如按['中国', '..']分割
+# example:
+# split_plus('abc,d e,f.g.h', [',', ' ', '.', 'bc']) = ['a', 'd', 'e', 'f', 'g', 'h']
 def split_plus(string_, separator_array_):
     if string_ is None or string_ == '':
         return []
@@ -31,6 +37,9 @@ def split_plus(string_, separator_array_):
     if separator_array_ is None or len(separator_array_) <= 0:
         # 默认按逗号空格分割
         separator_array_ = [',', ' ']
+
+    #过滤掉分隔符列表中的空元素,否则会出现死循环
+    separator_array_ = filter(lambda x: x is not None and x != '', separator_array_)
 
     len_ = len(string_)
     start_index_ = 0
